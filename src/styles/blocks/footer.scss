@@ -1,0 +1,42 @@
+.footer {
+  background-color: black;
+  height: 200px;
+  align-items: center;
+
+  @include onTABS {
+    height: 120px;
+  }
+
+  @include onDesktop {
+    height: 120px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 40px 0;
+
+    @include onTABS {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    @include onTABS {
+      justify-content: center;
+    }
+  }
+
+  &__logo {
+    padding: 0 40px;
+  }
+}

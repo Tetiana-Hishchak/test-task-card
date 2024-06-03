@@ -1,0 +1,52 @@
+.button {
+  width: 240px;
+  height: 56px;
+  border-radius: 15px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  border: 2px solid #F8F8F8;
+  background-color: transparent;
+  text-align: center;
+  color: #F8F8F8;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    background-color: #F8F8F8;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: #F8F8F8;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+
+  &_red {
+    width: 290px;
+    height: 48px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 1s;
+    background-color: $brandColor;
+
+    &:hover {
+      border: 2px solid #DF4E3C;
+      background-color: $whiteText;
+    }
+
+    &:active {
+      background-color: $brandColor;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+
+
+}

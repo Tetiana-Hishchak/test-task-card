@@ -1,0 +1,35 @@
+.sort {
+  &__container {
+    align-items: center;
+    gap: 10px;
+
+    @include onTABS {
+      display: flex;
+    }
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+.asc {
+  width: 12px;
+  height: 12px;
+  background-image: url(../images/asc.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.desc {
+  width: 12px;
+  height: 12px;
+  background-image: url(../images/des.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,12 @@
+.logo {
+  &__img {
+    width: 140px;
+    height: 36px;
+    margin: 10px 80px;
+
+    @include onTABS {
+      margin: 0px;
+    }
+  }
+
+}

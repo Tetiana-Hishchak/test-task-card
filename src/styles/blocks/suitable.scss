@@ -1,0 +1,122 @@
+.suitable {
+  background-color: black;
+  margin: 100px 0;
+  padding: 10px 0;
+
+
+  &_container {
+    height: max-content;
+    color: $whiteText;
+
+    @include onTABS {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 174px;
+      gap: 10px;
+    }
+  }
+
+  &_title {
+    width: 100%;
+    padding: 10px 0;
+
+    @include onTABS {
+      width: 40%;
+    }
+  }
+
+  &_form {
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px 0;
+
+    @include onTABS {
+      display: flex;
+      width: 60%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+  }
+
+  &_input {
+    width: 100%;
+    height: 56px;
+    border: 1px solid #BDBDBD;
+    background-color: transparent;
+    border-radius: 10px;
+    margin: 10px 0;
+
+    &:focus {
+      background-color: #F8F8F8;
+      border: 1px solid #8D8D8D
+    }
+  }
+
+  &_button {
+    margin: 0 auto;
+    display: block;
+    width: 260px;
+    height: 56px;
+    background-color: #F8F8F8;
+    border-radius: 10px;
+    text-align: center;
+
+
+    @include onTABS {
+      width: 35%;
+    }
+
+    &:hover {
+      color: $whiteText;
+      background-color: black;
+      border: 2px solid #F8F8F8
+    }
+
+    &:active {
+      background-color: #F8F8F8;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+    }
+  }
+
+
+}
+
+input + span {
+  position: relative;
+}
+
+input + span::before {
+  position: absolute;
+  right: 20px;
+  top: 3px;
+}
+
+input:invalid {
+  background-color: #F8F8F8;
+  border: 2px solid red;
+}
+
+input:valid {
+  background-color: #F8F8F8;
+  border: 1px solid #507A36
+}
+
+input:invalid + span::before {
+  content: "✖";
+  color: red;
+}
+
+input:valid + span::before {
+  content: "✓";
+  color: green;
+}

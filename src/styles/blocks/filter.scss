@@ -1,0 +1,77 @@
+.filter {
+  display: block;
+  width: 170px;
+  height: 48px;
+  gap: 0;
+  border-radius: 15px;
+  border: 1px solid rgba(189, 189, 189, 1);
+
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+
+    @include onTABS {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      flex-wrap: nowrap;
+    }
+
+  }
+
+  &__option {
+    background-color: #fafafa;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+  }
+}
+
+option {
+  background-color: #fafafa;
+  color: #444;
+}
+
+.bold-option {
+  font-weight: bold;
+}
+
+
+select.filter option:hover {
+  background-color: transparent;
+}
+
+select.filter:focus {
+  outline: none;
+}
+
+.selected-border {
+  border-color: red;
+  background-color: transparent;
+}
+
+.hide {
+  display: none;
+}
+
+input:checked + .form-label {
+  background-color: red;
+}
+
+
+.form-input:checked ~ .form-label {
+  color: red;
+  background-color: red;
+}
+
+
+
+
