@@ -192,12 +192,14 @@
             <button class="button_red">40 cars</button>
           </div>
           <div class="filter_container">
-            <div class="form-check">
-              <label class="form-label" for="flexCheckDefault">
+            <div class="form-cn">
+              <label class="form-label" for="flexCheck">
                 Instantly available vehicles
+                <input class="form-input" type="checkbox"
+                value="yyy" id="flexCheck">
               </label>
-              <input class="form-input" type="checkbox"
-                value="yyy" id="flexCheckDefault">
+              <!-- <input class="form-input" type="checkbox"
+                value="yyy" id="flexCheck"> -->
             </div>
             <label class="sort__container" for="sort">
               <div class="sort__box">
@@ -853,13 +855,10 @@
               action=" "
               method = "get"
             >
-              <label for="email"></label>
               <input
-                id="email"
                 class="suitable_input"
                 type="email"
                 placeholder="Enter your email"
-                required
               >
               <span></span>
 
@@ -1031,7 +1030,7 @@
 
       let $linkSorted = $("#sort");
       let $sortContainer = $(".product");
-      let sortContent = ".card"; 
+      let sortContent = ".card";
 
         $linkSorted.change(function() {
         const selectedOption = $(this).find("option:selected");
