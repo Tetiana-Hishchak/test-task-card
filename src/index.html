@@ -1031,11 +1031,9 @@
 
       let $linkSorted = $("#sort");
       let $sortContainer = $(".product");
-      let sortContent = ".card"; // Припускаємо, що ".product" - це контейнер, а ".card" - елементи для сортування
+      let sortContent = ".card"; 
 
-      // Нажаття на тип сортування
-      $linkSorted.change(function() {
-        // Отримуємо атрибут типу і порядок
+        $linkSorted.change(function() {
         const selectedOption = $(this).find("option:selected");
         const dataType = selectedOption.data("type");
         const sortOrder = selectedOption.data("order");
@@ -1046,34 +1044,29 @@
           $("#sortIndicator").removeClass("asc").addClass("desc");
         }
 
-        // Передаємо їх у функцію сортування елементів
         sortElements(dataType, sortOrder);
       });
 
 
       function sortElements(type, order) {
-        // Звертаємося до js-sort-content[data-id/name] і викликаємо метод sort
         $(sortContent).sort(function(a, b) {
-          // де a і b - це два порівнюваних елементи.
-          // Тут уже йде умова, де ми їх порівнюємо і за цим принципом сортуємо.
           let aValue = $(a).data(type);
           let bValue = $(b).data(type);
 
-          // Якщо значення є рядком, видаляємо коми
           if (typeof aValue === 'string') {
-            aValue = parseFloat(aValue.replace(/,/g, '')); // Видаляємо коми, якщо є
+            aValue = parseFloat(aValue.replace(/,/g, ''));
           } else {
             aValue = parseFloat(aValue);
           }
 
           if (typeof bValue === 'string') {
-            bValue = parseFloat(bValue.replace(/,/g, '')); // Видаляємо коми, якщо є
+            bValue = parseFloat(bValue.replace(/,/g, ''));
           } else {
             bValue = parseFloat(bValue);
           }
 
           console.log(aValue);
-          // Сортування за порядком
+
           if (order === 'asc') {
             return aValue < bValue ? -1 : 1;
           } else {
@@ -1088,9 +1081,9 @@
         $('.card').each(function() {
           var model = $(this).data('model');
           if (selectedModel === 'Make' || model === selectedModel) {
-            $(this).show(); // Показуємо картку
+            $(this).show();
           } else {
-            $(this).hide(); // Приховуємо картку
+            $(this).hide();
           }
         });
       });
@@ -1100,16 +1093,16 @@
         $('.card').each(function() {
           var year = $(this).data('year');
           if ( selectedYear === 'year' || year === +selectedYear) {
-            $(this).show(); // Показуємо картку
+            $(this).show();
           } else {
-            $(this).hide(); // Приховуємо картку
+            $(this).hide();
           }
         });
       });
 
 
       $('.toggle-description').click(function() {
-        $(this).toggleClass('plus minus'); // Змінюємо клас з "plus" на "minus" і навпаки
+        $(this).toggleClass('plus minus');
         $(this).siblings('.description').toggleClass('hidden');
         $(this).closest('.questions_item').toggleClass('clicked');
       });

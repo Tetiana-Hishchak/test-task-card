@@ -1,16 +1,9 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-// const form = document.querySelector('.form');
-
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   e.target.reset();
-// });
 document.getElementById('myForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // предотвращает отправку формы
-  // здесь можно добавить код для отправки данных на сервер, если нужно
-  this.reset(); // очищает форму после отправки
+  event.preventDefault();
+  this.reset();
 });
 
 function changeOptionColor(name) {
