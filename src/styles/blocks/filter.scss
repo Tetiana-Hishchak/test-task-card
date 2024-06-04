@@ -63,17 +63,115 @@ select.filter:focus {
 }
 
 input:checked {
-  background-color: red !important;
+  background-image: url(../images/asc.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+
 }
 label:has(input:checked) {
   color: red;
 }
 
-.form-input:checked ~ .form-label {
-  color: red;
-  background-color: red;
+label:has(input:disabled) {
+  color: #8D8D8D;
 }
 
+
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+}
+/* скрываем дефолтный флажок */
+.container .check-highload {
+  position: absolute;
+  opacity: 0;
+}
+/* Создаем кастомный checkbox */
+.highload2 {
+  position: absolute;
+  bottom: 4px;
+  left: -20px;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  background-color: #eee;
+}
+/* При наведении указателя мыши перекрашиваем */
+.container:hover .check-highload ~ .highload2 {
+  background-color: #ccc;
+}
+/* Когда отмечен, то красим в зеленый цвет */
+.container .check-highload:checked ~ .highload2 {
+  background-color: $brandColor;
+}
+.container .check-highload:disabled ~ .highload2 {
+  background-color: #8D8D8D;
+  ;
+}
+/* Создаем когда отмечено (не видно, когда не отмечено) */
+.highload2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Показываем когда отмечен */
+.container .check-highload:checked ~ .highload2:after {
+  display: block;
+}
+/* Стили индикатора */
+.container .highload2:after {
+  left: 8px;
+  top: 2px;
+  width: 8px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+.custom-select-wrapper {
+  position: relative;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.custom-select {
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-select-trigger {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.custom-options {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  z-index: 99;
+}
+
+.custom-option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-option:hover {
+  background-color: #e9e9e9;
+}
 
 
 

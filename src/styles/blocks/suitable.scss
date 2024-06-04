@@ -1,7 +1,8 @@
 .suitable {
   background-color: black;
   margin: 100px 0;
-  padding: 10px 0;
+  padding: 20px 0;
+  height: max-content;
 
 
   &_container {
@@ -106,7 +107,7 @@ input:user-invalid {
   border: 2px solid red;
 }
 
-input:user-valid {
+#email:user-valid {
   background-color: #F8F8F8;
   border: 1px solid #507A36
 }
@@ -116,7 +117,7 @@ input:user-invalid + span::before {
   color: red;
 }
 
-input:user-valid + span::before {
+#email:user-valid + span::before {
   content: "✓";
   color: green;
 }
