@@ -97,26 +97,27 @@ input + span {
 
 input + span::before {
   position: absolute;
-  right: 20px;
-  top: 3px;
+  right: 30px;
+  top: -10px;
 }
 
-input:invalid {
+input:user-invalid {
   background-color: #F8F8F8;
   border: 2px solid red;
 }
 
-input:valid {
+input:user-valid {
   background-color: #F8F8F8;
   border: 1px solid #507A36
 }
 
-input:invalid + span::before {
+input:user-invalid + span::before {
   content: "✖";
   color: red;
 }
 
-input:valid + span::before {
+input:user-valid + span::before {
   content: "✓";
   color: green;
 }
+
