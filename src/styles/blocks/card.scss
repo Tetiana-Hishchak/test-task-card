@@ -14,8 +14,8 @@
     justify-content: space-between;
   }
 
-  @media (min-width: 800px) and (max-width: 1200px) {
-    grid-template-columns: repeat(3, 260px);
+  @media (min-width: 870px) and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 250px);
     gap: 2px;
     justify-content: space-between;
   }

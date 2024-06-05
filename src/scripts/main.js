@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 'use strict';
 
-document.getElementById('myForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  this.reset();
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  e.target.reset();
 });
 
 function changeOptionColor(name) {
