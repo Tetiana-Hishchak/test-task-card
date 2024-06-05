@@ -111,6 +111,7 @@
               <select class="filter" id="year"
                 onchange="changeOptionColor('year')"
                 onclick="makeFirstOptionBold('year')"
+
               >
                 <option value="year">Year</option>
                 <option value="2014">2014</option>
@@ -1015,98 +1016,120 @@
 
 
     <script type="text/javascript">
+      function changeOptionColor(name) {
+        const select = document.getElementById(name);
+        const options = select.options;
 
-
-    $(document).ready(function() {
-      let $linkSorted = $("#sort");
-      let $sortContainer = $(".product");
-      let sortContent = ".card";
-
-      $linkSorted.change(function() {
-        const selectedOption = $(this).find("option:selected");
-        const dataType = selectedOption.data("type");
-        const sortOrder = selectedOption.data("order");
-
-        if (sortOrder === 'asc') {
-          $("#sortIndicator").removeClass("desc").addClass("asc");
-        } else if (sortOrder === 'desc') {
-          $("#sortIndicator").removeClass("asc").addClass("desc");
+        for (let i = 0; i < options.length; i++) {
+          if (options[i].selected && options[i].value !== '0') {
+            options[i].style.color = '#df4e3c';
+            select.classList.add('selected-border');
+          } else {
+            options[i].style.color = '#000000';
+          }
         }
 
-        sortElements(dataType, sortOrder);
-      });
-
-
-      function sortElements(type, order) {
-        $(sortContent).sort(function(a, b) {
-          let aValue = $(a).data(type);
-          let bValue = $(b).data(type);
-
-          if (typeof aValue === 'string') {
-            aValue = parseFloat(aValue.replace(/,/g, ''));
-          } else {
-            aValue = parseFloat(aValue);
-          }
-
-          if (typeof bValue === 'string') {
-            bValue = parseFloat(bValue.replace(/,/g, ''));
-          } else {
-            bValue = parseFloat(bValue);
-          }
-
-          if (order === 'asc') {
-            return aValue < bValue ? -1 : 1;
-          } else {
-            return aValue > bValue ? -1 : 1;
-          }
-        }).appendTo($sortContainer);
+        if (select.value === '0') {
+          select.classList.remove('selected-border');
+        }
       }
 
-      $('#make').change(function() {
-        var selectedModel = $(this).val();
-        $('.card').each(function() {
-          var model = $(this).data('model');
-          if (selectedModel === 'Make' || model === selectedModel) {
-            $(this).show();
-          } else {
-            $(this).hide();
+      function makeFirstOptionBold(name) {
+        const firstOption = document.querySelector(`#${name} option:first-child`);
+
+        firstOption.classList.add('bold-option');
+      }
+
+      $(document).ready(function() {
+        let $linkSorted = $("#sort");
+        let $sortContainer = $(".product");
+        let sortContent = ".card";
+
+        $linkSorted.change(function() {
+          const selectedOption = $(this).find("option:selected");
+          const dataType = selectedOption.data("type");
+          const sortOrder = selectedOption.data("order");
+
+          if (sortOrder === 'asc') {
+            $("#sortIndicator").removeClass("desc").addClass("asc");
+          } else if (sortOrder === 'desc') {
+            $("#sortIndicator").removeClass("asc").addClass("desc");
           }
+
+          sortElements(dataType, sortOrder);
+        });
+
+
+        function sortElements(type, order) {
+          $(sortContent).sort(function(a, b) {
+            let aValue = $(a).data(type);
+            let bValue = $(b).data(type);
+
+            if (typeof aValue === 'string') {
+              aValue = parseFloat(aValue.replace(/,/g, ''));
+            } else {
+              aValue = parseFloat(aValue);
+            }
+
+            if (typeof bValue === 'string') {
+              bValue = parseFloat(bValue.replace(/,/g, ''));
+            } else {
+              bValue = parseFloat(bValue);
+            }
+
+            if (order === 'asc') {
+              return aValue < bValue ? -1 : 1;
+            } else {
+              return aValue > bValue ? -1 : 1;
+            }
+          }).appendTo($sortContainer);
+        }
+
+        $('#make').change(function() {
+          var selectedModel = $(this).val();
+          $('.card').each(function() {
+            var model = $(this).data('model');
+            if (selectedModel === 'Make' || model === selectedModel) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        });
+
+        $('#year').change(function() {
+          let selectedYear = $(this).val();
+          $('.card').each(function() {
+            var year = $(this).data('year');
+            if ( selectedYear === 'year' || year === +selectedYear) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        });
+
+        $('#mileage').change(function() {
+          const selectedMileage = $(this).val();
+
+          $('.card').each(function() {
+            const mileage = $(this).data('mileage');
+            console.log(mileage, selectedMileage);
+            if (selectedMileage === 'mileage' || +selectedMileage >= +mileage) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        });
+
+
+        $('.toggle-description').click(function() {
+          $(this).toggleClass('plus minus');
+          $(this).siblings('.description').toggleClass('hidden');
+          $(this).closest('.questions_item').toggleClass('clicked');
         });
       });
-
-      $('#year').change(function() {
-        let selectedYear = $(this).val();
-        $('.card').each(function() {
-          var year = $(this).data('year');
-          if ( selectedYear === 'year' || year === +selectedYear) {
-            $(this).show();
-          } else {
-            $(this).hide();
-          }
-        });
-      });
-
-      $('#mileage').change(function() {
-        const selectedMileage = $(this).val();
-
-        $('.card').each(function() {
-          const mileage = $(this).data('mileage');
-          console.log(mileage, selectedMileage);
-          if (selectedMileage === 'mileage' || +selectedMileage >= +mileage) {
-            $(this).show();
-          } else {
-            $(this).hide();
-          }
-        });
-      });
-
-
-      $('.toggle-description').click(function() {
-        $(this).toggleClass('plus minus');
-        $(this).siblings('.description').toggleClass('hidden');
-        $(this).closest('.questions_item').toggleClass('clicked');
-      });
-    });
 
     </script>
   </body>
