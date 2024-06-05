@@ -3,27 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bose</title>
-    <!-- <link
+    <title>Sport</title>
+    <link
       rel="icon"
       class="logo__img"
       type="logo__img"
-      href="./images/logo.png"
-    > -->
-    <link rel="stylesheet" href="./styles/main.scss">
+      href="./images/car20.png"
+    >
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,
-      wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;
-      1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    >
-    <!-- <link rel="stylesheet" href="./styles/blocks/main.css"> -->
-    <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.css" rel="stylesheet"/> -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/main.scss">
   </head>
+
   <body class="page__body">
     <header class="header page__section">
       <div class="container">
@@ -44,14 +43,13 @@
               <li class="nav-item">
                 <a
                   class="nav-link active"
-                  aria-current="page"
-                  href="#"
+                  href="#suitable"
                 >
                   Inventory
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#financing">Financing</a>
+                <a class="nav-link" href="#suitable">Financing</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#contacts">Contacts</a>
@@ -107,21 +105,7 @@
           <h2  class="offers_title">CURRENT OFFERS</h2>
 
           <div class="filter_container"id="filters" >
-            <div class="custom-select-wrapper">
-              <div class="custom-select">
-                <div class="custom-select-trigger">Year</div>
-                <div class="custom-options" id="year">
-                  <option class="custom-option" value="year">Year</option>
-                  <option class="custom-option" value="2014">2014</option>
-                  <option class="custom-option" value="2015">2015</option>
-                  <option class="custom-option" value="2016">2016</option>
-                  <option class="custom-option" value="2017">2017</option>
-                  <option class="custom-option" value="2019">2019</option>
-                </div>
-              </div>
-            </div>
-
-            <!-- <label for="year">
+            <label for="year">
               <select class="filter" id="year"
                 onchange="changeOptionColor('year')"
                 onclick="makeFirstOptionBold('year')"
@@ -133,7 +117,7 @@
                 <option value="2017">2017</option>
                 <option value="2019">2019</option>
               </select>
-            </label> -->
+            </label>
             <label for="make">
               <select
                 class="filter"
@@ -145,7 +129,7 @@
                 <option class="filter__option" value="Honda">Honda</option>
                 <option class="filter__option" value="Kia">Kia</option>
                 <option class="filter__option" value="Toyota">Toyota</option>
-                <option class="filter__option" value="Toyota">Toyota</option>
+                <option class="filter__option" value="Lexus">Lexus</option>
                 <option class="filter__option" value="Volkswagen">Volkswagen</option>
               </select>
             </label>
@@ -159,7 +143,6 @@
                 <option value="Model">Model</option>
                 <option value="Honda">Honda</option>
                 <option value="Kia">Kia</option>
-                <option value="Toyota">Toyota</option>
                 <option value="Volkswagen">Volkswagen</option>
                 <option value="Toyota">Lexus</option>
               </select>
@@ -172,12 +155,11 @@
                 onchange="changeOptionColor('trim')"
                 onclick="makeFirstOptionBold('trim')"
               >
-                <option value="Trim">Trim</option>
-                <option value="Honda">Honda</option>
-                <option value="Kia">Kia</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Volkswagen">Volkswagen</option>
+                <option value="trim">Trim</option>
+                <option value="30">less 30</option>
+                <option value="50">less 50</option>
+                <option value="100">less 100</option>
+                <option value="150">less 150</option>
               </select>
             </label>
             <label for="mileage">
@@ -197,7 +179,7 @@
           </div>
           <div class="filter_container">
             <div class="form-cn">
-              <label class="container"> Instantly available vehicles
+              <label class="container__label"> Instantly available vehicles
                 <input type="checkbox"
                 class="check-highload">
                 <span class="highload2"></span>
@@ -210,10 +192,10 @@
                 <div id="sortIndicator" class="asc"></div>
               </div>
               <select
-              class="sort"
-              id="sort"
-              onchange="changeOptionColor('sort')"
-            >
+                class="sort"
+                id="sort"
+                onchange="changeOptionColor('sort')"
+              >
                 <option value="1" class="sort"
                   data-type="date" data-order="asc"
                 >
@@ -260,7 +242,7 @@
               class="card"
               data-model="Volkswagen"
               data-year="2019"
-              data-mileage ="19,855"
+              data-mileage ="19.855"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -286,7 +268,7 @@
               class="card"
               data-model="Toyota"
               data-year="2014"
-              data-mileage ="69,000"
+              data-mileage ="69.000"
               data-automatic="automatic"
               data-price="27,875"
             >
@@ -312,7 +294,7 @@
               class="card"
               data-model="Lexus"
               data-year="2017"
-              data-mileage ="39,850"
+              data-mileage ="39.850"
               data-automatic="automatic"
               data-price="38,775"
             >
@@ -338,7 +320,7 @@
               class="card"
               data-model="Toyota"
               data-year="2016"
-              data-mileage ="104,000"
+              data-mileage ="104.000"
               data-automatic="automatic"
               data-price="23,728"
             >
@@ -365,7 +347,7 @@
               class="card"
               data-model="Hyundai"
               data-year="2017"
-              data-mileage ="95,000"
+              data-mileage ="95.000"
               data-automatic="automatic"
               data-price="11,788"
             >
@@ -391,7 +373,7 @@
               class="card"
               data-model="Mercedes-Benz"
               data-year="2016"
-              data-mileage ="59,800"
+              data-mileage ="59.800"
               data-automatic="automatic"
               data-price="38,878"
             >
@@ -417,7 +399,7 @@
               class="card"
               data-model="Toyota"
               data-year="2015"
-              data-mileage ="99,000"
+              data-mileage ="99.000"
               data-automatic="automatic"
               data-price="18,620"
             >
@@ -443,7 +425,7 @@
               class="card"
               data-model="Lexus"
               data-year="2016"
-              data-mileage ="86,000"
+              data-mileage ="86.000"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -470,7 +452,7 @@
               class="card"
               data-model="Volkswagen"
               data-year="2019"
-              data-mileage ="19,855"
+              data-mileage ="19.855"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -496,7 +478,7 @@
               class="card"
               data-model="Toyota"
               data-year="2014"
-              data-mileage ="69,000"
+              data-mileage ="69.000"
               data-automatic="automatic"
               data-price="27,875"
             >
@@ -522,7 +504,7 @@
               class="card"
               data-model="Lexus"
               data-year="2017"
-              data-mileage ="39,850"
+              data-mileage ="39.850"
               data-automatic="automatic"
               data-price="38,775"
             >
@@ -548,7 +530,7 @@
               class="card"
               data-model="Toyota"
               data-year="2016"
-              data-mileage ="104,000"
+              data-mileage ="104.000"
               data-automatic="automatic"
               data-price="23,728"
             >
@@ -575,7 +557,7 @@
               class="card"
               data-model="Volkswagen"
               data-year="2019"
-              data-mileage ="19,855"
+              data-mileage ="19.855"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -601,7 +583,7 @@
               class="card"
               data-model="Toyota"
               data-year="2014"
-              data-mileage ="69,000"
+              data-mileage ="69.000"
               data-automatic="automatic"
               data-price="27,875"
             >
@@ -627,7 +609,7 @@
               class="card"
               data-model="Lexus"
               data-year="2017"
-              data-mileage ="39,850"
+              data-mileage ="39.850"
               data-automatic="automatic"
               data-price="38,775"
             >
@@ -653,7 +635,7 @@
               class="card"
               data-model="Toyota"
               data-year="2016"
-              data-mileage ="104,000"
+              data-mileage ="104.000"
               data-automatic="automatic"
               data-price="23,728"
             >
@@ -682,7 +664,7 @@
               class="card"
               data-model="Hyundai"
               data-year="2017"
-              data-mileage ="95,000"
+              data-mileage ="95.000"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -708,7 +690,7 @@
               class="card"
               data-model="Mercedes"
               data-year="2016"
-              data-mileage ="58,900"
+              data-mileage ="58.900"
               data-automatic="automatic"
               data-price="38,878"
             >
@@ -734,7 +716,7 @@
               class="card"
               data-model="Toyota"
               data-year="2015"
-              data-mileage ="99,000"
+              data-mileage ="99.000"
               data-automatic="automatic"
               data-price="18,620"
             >
@@ -763,7 +745,7 @@
               class="card"
               data-model="Lexus"
               data-year="2016"
-              data-mileage ="86,000"
+              data-mileage ="86.000"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -789,7 +771,7 @@
               class="card"
               data-model="Volkswagen"
               data-year="2019"
-              data-mileage ="19,855"
+              data-mileage ="19.855"
               data-automatic="automatic"
               data-price="34,888"
             >
@@ -815,7 +797,7 @@
               class="card"
               data-model="Toyota"
               data-year="2014"
-              data-mileage ="69,000"
+              data-mileage ="69.000"
               data-automatic="automatic"
               data-price="27,875"
             >
@@ -842,7 +824,7 @@
           </div>
         </div>
       </section>
-      <section class="suitable">
+      <section class="suitable" id="suitable">
         <div class="container">
           <div class="suitable_container">
             <div class="suitable_title">
@@ -898,10 +880,10 @@
               <span class="questions_description"> 3. Warranty / guarantee</span>
               <button class="toggle-description plus"></button>
               <div class="description hidden">
-                <ol type="3.1">
+                <ol class="questions_inList">
                   <li>3.1 The statutory warranty is completely excluded to the extent permitted by law.</li>
-                  <li>If the vehicle still has a current factory warranty, a sales representative (brand representative) of the manufacturer shall provide the services owed therein. If there is a factory warranty, the beginning of the warranty for new vehicles or vehicles with a current manufacturer's warranty is not the date of the first placing on the market, but the beginning of the warranty in the manufacturer's system or the contractually agreed beginning of the warranty, if any.</li>
-                  <li>If there is a special warranty insurance for the vehicle, this will take the place of the material warranty according to section 3.1 and replace it. In this case, the General Terms and Conditions of the respective warranty service provider apply.</li>
+                  <li>3.2 the vehicle still has a current factory warranty, a sales representative (brand representative) of the manufacturer shall provide the services owed therein. If there is a factory warranty, the beginning of the warranty for new vehicles or vehicles with a current manufacturer's warranty is not the date of the first placing on the market, but the beginning of the warranty in the manufacturer's system or the contractually agreed beginning of the warranty, if any.</li>
+                  <li>3.3 If there is a special warranty insurance for the vehicle, this will take the place of the material warranty according to section 3.1 and replace it. In this case, the General Terms and Conditions of the respective warranty service provider apply.</li>
                 </ol>
               </div>
 
@@ -964,7 +946,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contacts">
       <div class="container">
         <div class="footer__container">
           <div class="'footer__logo">
@@ -983,14 +965,13 @@
             <li class="nav-item">
               <a
                 class="nav-link active"
-                aria-current="page"
-                href="#"
+                href="suitable"
               >
                 Inventory
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#financing">Financing</a>
+              <a class="nav-link" href="#suitable">Financing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contacts">Contacts</a>
@@ -1023,56 +1004,18 @@
       </div>
 
     </footer>
-    <!-- <script src="scripts/jQuery.min.3.5.1.js"></script> -->
-    <!-- <script src="scripts/select.min.js"></script> -->
-    <!--<script src="js/select.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript">
+
+
     $(document).ready(function() {
-      $(".custom-select-trigger").on("click", function() {
-        $(this).siblings(".custom-options").toggle();
-    });
-
-    // Обработка выбора опции
-    $(".custom-option").on("click", function() {
-        var selectedOption = $(this).text();
-        var selectedValue = $(this).data('value');
-        $(this).closest(".custom-select").find(".custom-select-trigger").text(selectedOption);
-        $(this).parent(".custom-options").hide();
-
-        // Фильтрация карточек
-        filterCards(+selectedValue);
-    });
-
-    // Закрытие меню при клике вне кастомного селекта
-    $(document).on("click", function(event) {
-        if (!$(event.target).closest(".custom-select-wrapper").length) {
-            $(".custom-options").hide();
-        }
-    });
-
-    function filterCards(selectedYear) {
-      $('.card').each(function() {
-        const year = $(this).data('year');
-        if (selectedYear === 'year' || year == selectedYear) {  // Сравниваем как строки
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
-    }
-
 
       let $linkSorted = $("#sort");
       let $sortContainer = $(".product");
       let sortContent = ".card";
 
-        $linkSorted.change(function() {
+      $linkSorted.change(function() {
         const selectedOption = $(this).find("option:selected");
         const dataType = selectedOption.data("type");
         const sortOrder = selectedOption.data("order");
@@ -1104,8 +1047,6 @@
             bValue = parseFloat(bValue);
           }
 
-          console.log(aValue);
-
           if (order === 'asc') {
             return aValue < bValue ? -1 : 1;
           } else {
@@ -1113,7 +1054,6 @@
           }
         }).appendTo($sortContainer);
       }
-
 
       $('#make').change(function() {
         var selectedModel = $(this).val();
@@ -1127,19 +1067,31 @@
         });
       });
 
+      $('#year').change(function() {
+        let selectedYear = $(this).val();
+        $('.card').each(function() {
+          var year = $(this).data('year');
+          if ( selectedYear === 'year' || year === +selectedYear) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
 
+      $('#mileage').change(function() {
+        const selectedMileage = $(this).val();
 
-      // $('#year').change(function() {
-      //   let selectedYear = $(this).val();
-      //   $('.card').each(function() {
-      //     var year = $(this).data('year');
-      //     if ( selectedYear === 'year' || year === +selectedYear) {
-      //       $(this).show();
-      //     } else {
-      //       $(this).hide();
-      //     }
-      //   });
-      // });
+        $('.card').each(function() {
+          const mileage = $(this).data('mileage');
+          console.log(mileage, selectedMileage);
+          if (selectedMileage === 'mileage' || +selectedMileage >= +mileage) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
 
 
       $('.toggle-description').click(function() {
@@ -1147,7 +1099,6 @@
         $(this).siblings('.description').toggleClass('hidden');
         $(this).closest('.questions_item').toggleClass('clicked');
       });
-
     });
 
     </script>
