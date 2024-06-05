@@ -1004,12 +1004,25 @@
       </div>
 
     </footer>
+    <script type="text/javascript" src="scripts/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <script type="text/javascript">
 
 
     $(document).ready(function() {
+      $('#year').change(function() {
+        let selectedCategory = $(this).val();
+        $('.card').each(function() {
+          let itemCategory = $(this).data('year');
+          if (selectedCategory === 'year' || +selectedCategory === +itemCategory) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      });
 
       let $linkSorted = $("#sort");
       let $sortContainer = $(".product");
@@ -1067,17 +1080,17 @@
         });
       });
 
-      $('#year').change(function() {
-        let selectedYear = $(this).val();
-        $('.card').each(function() {
-          var year = $(this).data('year');
-          if ( selectedYear === 'year' || year === +selectedYear) {
-            $(this).show();
-          } else {
-            $(this).hide();
-          }
-        });
-      });
+      // $('#year').change(function() {
+      //   let selectedYear = $(this).val();
+      //   $('.card').each(function() {
+      //     var year = $(this).data('year');
+      //     if ( selectedYear === 'year' || year === +selectedYear) {
+      //       $(this).show();
+      //     } else {
+      //       $(this).hide();
+      //     }
+      //   });
+      // });
 
       $('#mileage').change(function() {
         const selectedMileage = $(this).val();
@@ -1102,6 +1115,5 @@
     });
 
     </script>
-    <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

@@ -141,4 +141,17 @@ label:has(input:disabled) {
   transform: rotate(45deg);
 }
 
+.hidden {
+  display: none;
+}
+.select2-container .select2-selection--single {
+  height: 40px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #ddd;
+}
 
