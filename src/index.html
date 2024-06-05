@@ -108,11 +108,7 @@
 
           <div class="filter_container"id="filters" >
             <label for="year">
-              <select class="filter" id="year"
-                onchange="changeOptionColor('year')"
-                onclick="makeFirstOptionBold('year')"
-
-              >
+              <select class="filter" id="year">
                 <option value="year">Year</option>
                 <option value="2014">2014</option>
                 <option value="2015">2015</option>
@@ -125,8 +121,6 @@
               <select
                 class="filter"
                 id="make"
-                onchange="changeOptionColor('make')"
-                onclick="makeFirstOptionBold('make')"
               >
                 <option class="filter__option" value="Make">Make</option>
                 <option class="filter__option" value="Honda">Honda</option>
@@ -140,8 +134,6 @@
               <select
                 class="filter"
                 id="model"
-                onchange="changeOptionColor('model')"
-                onclick="makeFirstOptionBold('model')"
               >
                 <option value="Model">Model</option>
                 <option value="Honda">Honda</option>
@@ -155,8 +147,6 @@
               <select
                 class="filter"
                 id="trim"
-                onchange="changeOptionColor('trim')"
-                onclick="makeFirstOptionBold('trim')"
               >
                 <option value="trim">Trim</option>
                 <option value="30">less 30</option>
@@ -168,8 +158,6 @@
             <label for="mileage">
               <select
                 class="filter" id="mileage"
-                onchange="changeOptionColor('mileage')"
-                onclick="makeFirstOptionBold('mileage')"
               >
                 <option value="mileage">Mileage</option>
                 <option value="30">less 30</option>
@@ -1016,30 +1004,6 @@
 
 
     <script type="text/javascript">
-      function changeOptionColor(name) {
-        const select = document.getElementById(name);
-        const options = select.options;
-
-        for (let i = 0; i < options.length; i++) {
-          if (options[i].selected && options[i].value !== '0') {
-            options[i].style.color = '#df4e3c';
-            select.classList.add('selected-border');
-          } else {
-            options[i].style.color = '#000000';
-          }
-        }
-
-        if (select.value === '0') {
-          select.classList.remove('selected-border');
-        }
-      }
-
-      function makeFirstOptionBold(name) {
-        const firstOption = document.querySelector(`#${name} option:first-child`);
-
-        firstOption.classList.add('bold-option');
-      }
-
       $(document).ready(function() {
         let $linkSorted = $("#sort");
         let $sortContainer = $(".product");
@@ -1085,44 +1049,37 @@
           }).appendTo($sortContainer);
         }
 
-        $('#make').change(function() {
-          var selectedModel = $(this).val();
-          $('.card').each(function() {
-            var model = $(this).data('model');
-            if (selectedModel === 'Make' || model === selectedModel) {
-              $(this).show();
-            } else {
-              $(this).hide();
-            }
+        function filterCards(elementId, dataAttribute, conditionFunction) {
+          $('#' + elementId).change(function() {
+            const selectedValue = $(this).val();
+
+            $('.card').each(function() {
+              const cardValue = $(this).data(dataAttribute);
+
+              if (conditionFunction(selectedValue, cardValue)) {
+                $(this).show();
+              } else {
+                $(this).hide();
+              }
+            });
           });
-        });
+        }
 
-        $('#year').change(function() {
-          let selectedYear = $(this).val();
-          $('.card').each(function() {
-            var year = $(this).data('year');
-            if ( selectedYear === 'year' || year === +selectedYear) {
-              $(this).show();
-            } else {
-              $(this).hide();
-            }
-          });
-        });
+        function compareSelectedValue(selectedValue, cardValue) {
+          return selectedValue === 'model' || selectedValue === cardValue;
+        }
 
-        $('#mileage').change(function() {
-          const selectedMileage = $(this).val();
+        function compareSelectedYear(selectedYear, cardYear) {
+          return selectedYear === 'year' || +selectedYear === +cardYear;
+        }
 
-          $('.card').each(function() {
-            const mileage = $(this).data('mileage');
-            console.log(mileage, selectedMileage);
-            if (selectedMileage === 'mileage' || +selectedMileage >= +mileage) {
-              $(this).show();
-            } else {
-              $(this).hide();
-            }
-          });
-        });
+        function compareSelectedMileage(selectedMileage, cardMileage) {
+          return selectedMileage === 'mileage' || +selectedMileage >= +cardMileage;
+        }
 
+        filterCards('make', 'model', compareSelectedValue);
+        filterCards('year', 'year', compareSelectedYear);
+        filterCards('mileage', 'mileage', compareSelectedMileage);
 
         $('.toggle-description').click(function() {
           $(this).toggleClass('plus minus');
