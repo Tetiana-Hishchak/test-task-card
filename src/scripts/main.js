@@ -10,11 +10,11 @@ form.addEventListener('submit', (e) => {
 function addListeners(elementId) {
   const element = document.getElementById(elementId);
 
-  element.addEventListener('change', function(event) {
+  element.addEventListener('change', function() {
     changeOptionColor(elementId);
   });
 
-  element.addEventListener('click', function(event) {
+  element.addEventListener('click', function() {
     makeFirstOptionBold(elementId);
   });
 }
@@ -23,6 +23,12 @@ addListeners('make');
 addListeners('mileage');
 addListeners('model');
 addListeners('trim');
+
+const sort = document.getElementById('sort');
+
+sort.addEventListener('change', function() {
+  changeOptionColor('sort');
+});
 
 function changeOptionColor(name) {
   const select = document.getElementById(name);
