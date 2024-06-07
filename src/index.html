@@ -107,65 +107,97 @@
           <h2  class="offers_title">CURRENT OFFERS</h2>
 
           <div class="filter_container"id="filters" >
-            <label class="custom-select" for="year">
-              <select class="filter" id="year">
-                <option value="year">Year</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2019">2019</option>
-              </select>
-            </label>
-            <label for="make">
-              <select
-                class="filter"
-                id="make"
-              >
-                <option class="filter__option" value="Make">Make</option>
-                <option class="filter__option" value="Honda">Honda</option>
-                <option class="filter__option" value="Kia">Kia</option>
-                <option class="filter__option" value="Toyota">Toyota</option>
-                <option class="filter__option" value="Lexus">Lexus</option>
-                <option class="filter__option" value="Volkswagen">Volkswagen</option>
-              </select>
-            </label>
-            <label for="model">
-              <select
-                class="filter"
-                id="model"
-              >
-                <option value="Model">Model</option>
-                <option value="Honda">Honda</option>
-                <option value="Kia">Kia</option>
-                <option value="Volkswagen">Volkswagen</option>
-                <option value="Toyota">Lexus</option>
-              </select>
-            </label>
 
-            <label for="trim">
-              <select
-                class="filter"
-                id="trim"
-              >
-                <option value="trim">Trim</option>
-                <option value="30">less 30</option>
-                <option value="50">less 50</option>
-                <option value="100">less 100</option>
-                <option value="150">less 150</option>
-              </select>
-            </label>
-            <label for="mileage">
-              <select
-                class="filter" id="mileage"
-              >
-                <option value="mileage">Mileage</option>
-                <option value="30">less 30</option>
-                <option value="50">less 50</option>
-                <option value="100">less 100</option>
-                <option value="150">less 150</option>
-              </select>
-            </label>
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="dropdown__button" id="year">Year</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item" data-value="year">Year</li>
+                  <li class="dropdown__list-item" data-value="2014">2014</li>
+                  <li class="dropdown__list-item" data-value="2015">2015</li>
+                  <li class="dropdown__list-item" data-value="2016">2016</li>
+                  <li class="dropdown__list-item" data-value="2017">2017</li>
+                  <li class="dropdown__list-item" data-value="2018">2018</li>
+                  <li class="dropdown__list-item" data-value="2019">2019</li>
+                </ul>
+                <input type="text"
+                  value=" "
+                  class="dropdown__input-hidden"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="dropdown__button" id="model">Make</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item" data-value="model">Make</li>
+                  <li class="dropdown__list-item" data-value="Honda">Honda</li>
+                  <li class="dropdown__list-item" data-value="Kia">Kia</li>
+                  <li class="dropdown__list-item" data-value="Toyota">Toyota</li>
+                  <li class="dropdown__list-item" data-value="Lexus">Lexus</li>
+                  <li class="dropdown__list-item" data-value="Volkswagen">Volkswagen</li>
+                </ul>
+                <input type="text"
+                  value=" "
+                  name="model"
+                  class="dropdown__input-hidden"
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="dropdown__button">Model</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item" data-value="model">Model</li>
+                  <li class="dropdown__list-item" data-value="Honda">Honda</li>
+                  <li class="dropdown__list-item" data-value="Kia">Kia</li>
+                  <li class="dropdown__list-item" data-value="Toyota">Toyota</li>
+                  <li class="dropdown__list-item" data-value="Lexus">Lexus</li>
+                  <li class="dropdown__list-item" data-value="Volkswagen">Volkswagen</li>
+                </ul>
+                <input type="text"
+                  value=" "
+                  name="model"
+                  class="dropdown__input-hidden"
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="dropdown__button" id="trim">Trim</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item" data-value="trim">Trim</li>
+                  <li class="dropdown__list-item" data-value="30">less 30</li>
+                  <li class="dropdown__list-item" data-value="50">less 50</li>
+                  <li class="dropdown__list-item" data-value="100">less 100</li>
+                  <li class="dropdown__list-item" data-value="150">less 150</li>
+                </ul>
+                <input type="text"
+                  value=" "
+                  name="trim"
+                  class="dropdown__input-hidden"
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="dropdown">
+                <button class="dropdown__button" id="mileage">Mileage</button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item" data-value="mileage">Mileage</li>
+                  <li class="dropdown__list-item" data-value="30">less 30</li>
+                  <li class="dropdown__list-item" data-value="50">less 50</li>
+                  <li class="dropdown__list-item" data-value="100">less 100</li>
+                  <li class="dropdown__list-item" data-value="150">less 150</li>
+                </ul>
+                <input type="text"
+                  value=" "
+                  name="mileage"
+                  class="dropdown__input-hidden"
+                >
+              </div>
+            </div>
             <button class="button_red">40 cars</button>
           </div>
           <div class="filter_container">
@@ -184,6 +216,7 @@
                 Sort by
                 <div id="sortIndicator" class="asc"></div>
               </div>
+
               <select
                 class="sort"
                 id="sort"
@@ -996,7 +1029,6 @@
 
         </div>
       </div>
-
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -1047,38 +1079,6 @@
             }
           }).appendTo($sortContainer);
         }
-
-        function filterCards(elementId, dataAttribute, conditionFunction) {
-          $('#' + elementId).change(function() {
-            const selectedValue = $(this).val();
-
-            $('.card').each(function() {
-              const cardValue = $(this).data(dataAttribute);
-
-              if (conditionFunction(selectedValue, cardValue)) {
-                $(this).show();
-              } else {
-                $(this).hide();
-              }
-            });
-          });
-        }
-
-        function compareSelectedValue(selectedValue, cardValue) {
-          return selectedValue === 'model' || selectedValue === cardValue;
-        }
-
-        function compareSelectedYear(selectedYear, cardYear) {
-          return selectedYear === 'year' || +selectedYear === +cardYear;
-        }
-
-        function compareSelectedMileage(selectedMileage, cardMileage) {
-          return selectedMileage === 'mileage' || +selectedMileage >= +cardMileage;
-        }
-
-        filterCards('make', 'model', compareSelectedValue);
-        filterCards('year', 'year', compareSelectedYear);
-        filterCards('mileage', 'mileage', compareSelectedMileage);
 
         $('.toggle-description').click(function() {
           $(this).toggleClass('plus minus');

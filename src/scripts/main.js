@@ -7,23 +7,6 @@ form.addEventListener('submit', (e) => {
   e.target.reset();
 });
 
-function addListeners(elementId) {
-  const element = document.getElementById(elementId);
-
-  element.addEventListener('change', function() {
-    changeOptionColor(elementId);
-  });
-
-  element.addEventListener('click', function() {
-    makeFirstOptionBold(elementId);
-  });
-}
-addListeners('year');
-addListeners('make');
-addListeners('mileage');
-addListeners('model');
-addListeners('trim');
-
 const sort = document.getElementById('sort');
 
 sort.addEventListener('change', function() {
@@ -48,8 +31,64 @@ function changeOptionColor(name) {
   }
 }
 
-function makeFirstOptionBold(name) {
-  const firstOption = document.querySelector(`#${name} option:first-child`);
+document.querySelectorAll('.dropdown').forEach(dropDownWrapper => {
+  const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
+  const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
+  const dropDownListItems = dropDownList
+    .querySelectorAll('.dropdown__list-item');
+  const dropDownInput = dropDownWrapper
+    .querySelector('.dropdown__input-hidden');
 
-  firstOption.classList.add('bold-option');
-}
+  dropDownBtn.addEventListener('click', e => {
+    dropDownList.classList.toggle('dropdown__list--visible');
+    dropDownBtn.classList.toggle('dropdown__button--active');
+  });
+
+  dropDownListItems.forEach(listItem => {
+    listItem.addEventListener('click', e => {
+      e.stopPropagation();
+      dropDownBtn.innerText = listItem.innerText;
+      dropDownBtn.focus();
+      dropDownInput.value = listItem.dataset.value;
+      dropDownList.classList.remove('dropdown__list--visible');
+      dropDownListItems.forEach(item => item.classList.remove('selected'));
+      listItem.classList.add('selected');
+
+      filterCards(dropDownBtn.id, listItem.dataset.value);
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (!dropDownWrapper.contains(e.target)) {
+      dropDownBtn.classList.remove('dropdown__button--active');
+      dropDownList.classList.remove('dropdown__list--visible');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Tab' || e.key === 'Escape') {
+      dropDownBtn.classList.remove('dropdown__button--active');
+      dropDownList.classList.remove('dropdown__list--visible');
+    }
+  });
+
+  function filterCards(elementId, value) {
+    const cards = document.querySelectorAll('.card');
+    const conditionFunctions = {
+      year: (selected, card) => selected === 'year' || +selected === +card,
+      model: (selected, card) => selected === 'model' || selected === card,
+      mileage: (selected, card) => selected === 'mileage' || +selected >= +card,
+    };
+
+    const conditionFunction = conditionFunctions[elementId];
+
+    if (conditionFunction) {
+      cards.forEach(card => {
+        const cardValue = card.getAttribute(`data-${elementId}`);
+
+        card.style.display = conditionFunction(value, cardValue)
+          ? 'block' : 'none';
+      });
+    }
+  }
+});
