@@ -1068,33 +1068,12 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        let $linkSorted = $("#sort");
-        // let $sortContainer = $(".product");
-        // let sortContent = ".card";
-
-        $linkSorted.change(function() {
-          const selectedOption = $(this).find("option:selected");
-          const dataType = selectedOption.data("type");
-          const sortOrder = selectedOption.data("order");
-
-          if (sortOrder === 'asc') {
-            $("#sortIndicator").removeClass("desc").addClass("asc");
-          } else if (sortOrder === 'desc') {
-            $("#sortIndicator").removeClass("asc").addClass("desc");
-          }
-
-          sortElements(dataType, sortOrder);
-        });
-
-
-
         $('.toggle-description').click(function() {
           $(this).toggleClass('plus minus');
           $(this).siblings('.description').toggleClass('hidden');
           $(this).closest('.questions_item').toggleClass('clicked');
         });
       });
-
     </script>
   </body>
 </html>

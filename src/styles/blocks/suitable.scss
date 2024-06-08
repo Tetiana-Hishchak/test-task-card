@@ -49,6 +49,7 @@
     background-color: transparent;
     border-radius: 10px;
     margin: 10px 0;
+    padding: 0 10px;
 
     &:focus {
       background-color: #F8F8F8;
@@ -64,6 +65,7 @@
     background-color: #F8F8F8;
     border-radius: 10px;
     text-align: center;
+    transition: all 500ms ease;
 
 
     @include onTABS {
@@ -78,6 +80,7 @@
 
     &:active {
       background-color: #F8F8F8;
+      color: black;
     }
 
     &:disabled {
@@ -88,7 +91,6 @@
       opacity: 0.4;
     }
   }
-
 }
 
 input + span {
@@ -121,3 +123,19 @@ input:user-invalid + span::before {
   color: green;
 }
 
+input:-webkit-autofill {
+  background:#F8F8F8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #F8F8F8 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

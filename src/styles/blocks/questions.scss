@@ -37,8 +37,6 @@
     text-align: left;
     color: rgba(0, 0, 0, 1);
   }
-
-
 }
 
 .toggle-description {
@@ -64,18 +62,24 @@
   color: $brandColor;
 }
 
-.plus {
+.plus, .minus {
   width: 24px;
   height: 24px;
-  background-image: url(../images/add.svg);
   background-size: cover;
   background-repeat: no-repeat;
+  transition: all 200ms ease;
+}
+
+.plus {
+  background-image: url(../images/add.svg);
+}
+
+.plus:hover {
+  animation: bounce 0.5s;
 }
 
 .minus {
-  width: 24px;
-  height: 24px;
   background-image: url(../images/minus.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
+
+
