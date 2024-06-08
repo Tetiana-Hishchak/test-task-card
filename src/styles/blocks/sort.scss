@@ -1,7 +1,6 @@
 .sort {
   &__container {
     align-items: center;
-    gap: 10px;
 
     @include onTABS {
       display: flex;

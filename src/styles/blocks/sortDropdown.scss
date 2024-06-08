@@ -1,0 +1,113 @@
+.sort {
+	position: relative;
+
+  &__button {
+    position: relative;
+    display: block;
+    width: 220px;
+    text-align: left;
+
+
+    background: #FFFFFF;
+
+    height: 24px;
+
+    padding: 2px 0  0 20px ;
+
+    border: none;
+
+    font-family: Noto Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.34px;
+    color: #8D8D8D;
+
+
+    cursor: pointer;
+  }
+
+  &__button:hover {
+    color: $brandColor;
+  }
+
+  &__button:focus, &__button--active {
+    outline: none;
+    color: #8D8D8D;
+  }
+
+  // &__button::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 50%;
+  //   right: 15px;
+  //   transform: translateY(-50%);
+  //   width: 15px;
+  //   height: 15px;
+
+
+  //   background-image: url(../images/traingel.png);
+  //   background-position: center;
+
+  //   pointer-events: none;
+  // }
+
+  &__list {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    top: 30px;
+
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid #BDBDBD;
+
+    background: #FFFFFF;
+    overflow: hidden;
+
+    border-radius: 12px;
+    width: 103%;
+    color: black;
+
+    z-index: 1;
+  }
+
+  &__list--visible {
+    display: block;
+  }
+
+  &__list-item {
+    margin: 0;
+    padding: 0;
+    // border: 1px solid #7E9BBD;
+    border-bottom: 0px;
+    padding: 8px 20px;
+    font-family: Noto Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: black;
+
+    cursor: pointer;
+  }
+
+  // &__list-item:first-child {
+  //   border-radius: 6px 6px 0 0;
+  //   font-weight: bold;
+  // }
+
+  &__list-item:last-child {
+    border-radius: 0 0 6px 6px;
+    border-bottom: 1px solid #7E9BBD;
+  }
+
+  &__list-item.selected {
+    color: $brandColor;
+  }
+
+  &__input-hidden {
+    display: none;
+  }
+}

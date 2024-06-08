@@ -203,8 +203,10 @@
           </div>
           <div class="filter_container">
             <div class="form-cn">
-              <label class="container__label"> Instantly available vehicles
-                <input type="checkbox"
+              <label class="container__label">
+                Instantly available vehicles
+                <input
+                  type="checkbox"
                   class="check-highload"
                   name="checkbox"
                 >
@@ -212,55 +214,84 @@
               </label>
 
             </div>
-            <label class="sort__container" for="sort">
+            <div class="sort__container">
               <div class="sort__box">
                 Sort by
                 <div id="sortIndicator" class="asc"></div>
               </div>
+              <div class="form-group">
+                <div class="sort">
+                  <button
+                    class="sort__button"
+                    id="sort"
+                  >
+                    Publication date (ascending)
+                  </button>
+                  <ul class="sort__list">
+                    <li
+                      class="sort__list-item"
+                      data-type="date"
+                      data-order="asc"
+                    >
 
-              <select
-                class="sort"
-                id="sort"
-              >
-                <option value="1" class="sort"
-                  data-type="date" data-order="asc"
-                >
-
-                  Publication date (ascending)
-                </option>
-                <option value="2" class="sort"
-                  data-type="date" data-order="desc"
-                >
-                  Publication date (descending)
-                </option>
-                <option value="3"  class="sort"
-                  data-type="price" data-order="asc"
-                >
-                  Price (ascending)
-                </option>
-                <option value="4" class="sort"
-                  data-type="price" data-order="desc"
-                >
-                  Price (descending)
-                </option>
-                <option value="5" class="sort"
-                  data-type="mileage" data-order="asc">Mileage (ascending)</option>
-                <option value="6" class="sort"
-                  data-type="mileage" data-order="desc"
-                >Mileage (descending)</option>
-                <option value="7" class="sort"
-                  data-type="performance" data-order="asc"
-                >
-                  Performance (ascending)
-                </option>
-                <option value="8"  class="sort"
-                  data-type="performance" data-order="desc"
-                >
-                  Performance (descending)
-                </option>
-              </select>
-            </label>
-
+                      Publication date (ascending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="date"
+                      data-order="desc"
+                  >
+                      Publication date (descending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="price"
+                      data-order="asc"
+                    >
+                      Price (ascending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="price"
+                      data-order="desc"
+                    >
+                      Price (descending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="mileage"
+                      data-order="asc"
+                    > Mileage (ascending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="mileage"
+                      data-order="desc"
+                    > Mileage (descending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="performance"
+                      data-order="asc"
+                    >
+                      Performance (ascending)
+                    </li>
+                    <li
+                      class="sort__list-item"
+                      data-type="performance"
+                      data-order="desc"
+                    >
+                      Performance (descending)
+                    </li>
+                  </ul>
+                  <input type="text"
+                    value=" "
+                    name="sort"
+                    class="sort__input-hidden"
+                  >
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="product">
@@ -1038,8 +1069,8 @@
     <script type="text/javascript">
       $(document).ready(function() {
         let $linkSorted = $("#sort");
-        let $sortContainer = $(".product");
-        let sortContent = ".card";
+        // let $sortContainer = $(".product");
+        // let sortContent = ".card";
 
         $linkSorted.change(function() {
           const selectedOption = $(this).find("option:selected");
@@ -1056,30 +1087,6 @@
         });
 
 
-        function sortElements(type, order) {
-          $(sortContent).sort(function(a, b) {
-            let aValue = $(a).data(type);
-            let bValue = $(b).data(type);
-
-            if (typeof aValue === 'string') {
-              aValue = parseFloat(aValue.replace(/,/g, ''));
-            } else {
-              aValue = parseFloat(aValue);
-            }
-
-            if (typeof bValue === 'string') {
-              bValue = parseFloat(bValue.replace(/,/g, ''));
-            } else {
-              bValue = parseFloat(bValue);
-            }
-
-            if (order === 'asc') {
-              return aValue < bValue ? -1 : 1;
-            } else {
-              return aValue > bValue ? -1 : 1;
-            }
-          }).appendTo($sortContainer);
-        }
 
         $('.toggle-description').click(function() {
           $(this).toggleClass('plus minus');
